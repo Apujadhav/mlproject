@@ -1,8 +1,9 @@
 # 🎓 Student Performance Prediction System
 
-**Academic Machine Learning Project – End-to-End Implementation**
+**End-to-End Machine Learning Project | Academic & Placement Portfolio**
 
-A complete **Machine Learning–powered prediction system** that estimates **student academic performance** using demographic, social, and educational attributes, with a fully modular ML pipeline and web-based inference.
+A complete **Machine Learning-based prediction system** that estimates **student academic performance** using demographic, social, and educational attributes.  
+This project follows the **full ML lifecycle** from **EDA and model training** to **web-based inference using Flask**.
 
 ---
 
@@ -10,50 +11,46 @@ A complete **Machine Learning–powered prediction system** that estimates **stu
 
 This project simulates a real-world **education analytics system** where understanding and predicting student outcomes is critical.
 
-The system ensures:
-- Structured data analysis through EDA
+The system includes:
+- Exploratory Data Analysis (EDA)
+- Data ingestion and preprocessing pipelines
 - Training and comparison of multiple ML models
-- Selection of the best-performing model
+- Hyperparameter tuning and model selection
 - Persistent storage of trained artifacts
-- Real-time prediction via a web application
-
-All components are designed following **industry-aligned ML engineering practices**.
+- Real-time prediction using a Flask web application
 
 ---
 
 ## 🧠 Problem Statement
 
-Student academic performance is influenced by multiple interdependent factors such as:
+Student academic performance is influenced by multiple factors such as:
 - Parental education level
 - Test preparation status
 - Gender and socio-economic background
 
-The objective of this project is to **predict a student’s final score** using supervised machine learning and provide predictions through a user-friendly interface.
+The objective is to **predict a student’s final score** using supervised machine learning and expose predictions through a user-friendly web interface.
 
 ---
 
 ## 🔍 Exploratory Data Analysis (EDA)
 
-EDA was conducted to understand feature distributions, correlations, and performance drivers.
+EDA was conducted to understand feature distributions and relationships.
 
-### Key Observations:
-- Students completing **test preparation courses** perform significantly better
-- **Parental education level** shows strong correlation with student scores
+### Key Insights:
+- Students completing **test preparation courses** perform better
+- **Parental education level** has a strong impact on scores
 - Math, Reading, and Writing scores are highly correlated
-- Score distributions are approximately normal with minimal outliers
+- Score distributions are approximately normal
 
-EDA includes:
-- Univariate and multivariate analysis
-- Correlation heatmaps
-- Distribution plots and boxplots
+EDA notebooks are available inside the `notebook/` directory.
 
 ---
 
 ## 🤖 Machine Learning Implementation
 
 ### 🔹 ML Task
-- **Type:** Regression
-- **Target Variable:** Student Final Score
+- **Type:** Regression  
+- **Target Variable:** Student Final Score  
 
 ### 🔹 Models Implemented
 - Linear Regression
@@ -65,25 +62,25 @@ EDA includes:
 - CatBoost Regressor
 
 ### 🔹 Model Selection Strategy
-- Hyperparameter tuning performed using grid-based search
-- Models evaluated using **R² score**
-- Best-performing model selected and persisted for inference
+- Hyperparameter tuning for ensemble models
+- Evaluation using **R² Score**
+- Best-performing model saved as an artifact
 
 ---
 
 ## 🚀 Web Application
 
-A **Flask-based web application** enables real-time prediction of student performance.
+A **Flask-based web application** allows users to input student details and receive real-time performance predictions.
 
 ### Features:
-- Clean HTML-based user interface
-- Real-time prediction results
-- Trained model loaded from saved artifacts
-- Modular preprocessing and inference pipeline
+- Simple HTML-based UI
+- Real-time prediction output
+- Model and preprocessor loaded from saved artifacts
+- Modular prediction pipeline
 
 ---
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
 | Layer | Technologies |
 |------|-------------|
@@ -92,7 +89,6 @@ A **Flask-based web application** enables real-time prediction of student perfor
 | Visualization | Matplotlib, Seaborn |
 | Machine Learning | Scikit-learn, CatBoost, XGBoost |
 | Backend | Flask |
-| Frontend | HTML (Jinja Templates) |
 | Packaging | setup.py, requirements.txt |
 | Deployment | AWS (Planned) |
 
@@ -100,37 +96,50 @@ A **Flask-based web application** enables real-time prediction of student perfor
 
 ## 📂 Project Structure
 
+```text
 mlproject/
-├── artifacts/ # Trained models & preprocessors
-├── catboost_info/ # CatBoost training logs
-├── notebook/ # EDA & model training notebooks
-│ ├── EDA STUDENT PERFORMANCE.ipynb
-│ └── MODEL TRAINING.ipynb
-├── src/ # Modular ML pipeline
-├── templates/ # HTML templates
-├── app.py # Flask application
-├── application.py # App entry point
+├── .ebextensions/
+│   └── python.config
+├── artifacts/
+│   ├── data.csv
+│   ├── train.csv
+│   ├── test.csv
+│   ├── model.pkl
+│   └── preprocessor.pkl
+├── catboost_info/
+├── logs/
+├── notebook/
+│   ├── 1. EDA STUDENT PERFORMANCE.ipynb
+│   └── 2. MODEL TRAINING.ipynb
+├── src/
+│   ├── components/
+│   │   ├── data_ingestion.py
+│   │   ├── data_transformation.py
+│   │   └── model_trainer.py
+│   ├── pipeline/
+│   │   ├── train_pipeline.py
+│   │   └── predict_pipeline.py
+│   ├── exception.py
+│   ├── logger.py
+│   └── utils.py
+├── templates/
+│   ├── home.html
+│   └── index.html
+├── app.py
 ├── requirements.txt
 ├── setup.py
 └── README.md
+⚙️ Setup & Run Instructions
+🔹 Prerequisites
+Python 3.8+
 
-yaml
+pip
+
+Git
+
+🔹 Local Setup
+bash
 Copy code
-
----
-
-## ⚙️ Setup & Run Instructions
-
-### 🔹 Prerequisites
-- Python 3.8+
-- pip
-- Git
-
----
-
-### 🔹 Local Setup
-
-```bash
 git clone https://github.com/Apujadhav/mlproject.git
 cd mlproject
 python -m venv venv
@@ -159,11 +168,11 @@ http://127.0.0.1:5000
 📈 Results
 Achieved strong R² score on test data
 
-Ensemble and boosting models outperformed baseline regression models
+Ensemble and boosting models outperformed baseline regressors
 
-Selected model demonstrates stable and consistent predictions
+Stable and consistent predictions
 
-End-to-end pipeline is deployment-ready
+End-to-end ML pipeline ready for deployment
 
 🧩 Future Enhancements
 ☁️ AWS Elastic Beanstalk deployment
@@ -172,7 +181,7 @@ End-to-end pipeline is deployment-ready
 
 📊 Model monitoring and logging
 
-📈 Performance visualization dashboard
+📈 Performance dashboard
 
 👤 Author
 Apurva Jadhav
